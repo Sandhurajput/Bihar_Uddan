@@ -9,7 +9,7 @@ body {
 
 }
 
-.navbar {
+/* .navbar {
   background-color: rgba(139, 0, 0, 0.8);
   padding: 15px 30px;
   display: flex;
@@ -47,7 +47,7 @@ body {
 .nav-links li a:hover {
   color: #ffd700;
   transform: scale(1.1);
-}
+} */
 /* Logo Image */
 .logo-img {
   padding-top: 10px;
@@ -224,8 +224,8 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
+  /* .navbar { */
+    /* flex-direction: column;
     align-items: flex-start;
   }
 
@@ -235,7 +235,7 @@ button:hover {
     width: 100%;
     background-color: rgba(139, 0, 0, 0.9);
     padding: 10px;
-  }
+  } */
 
   .hero {
     flex-direction: column;

@@ -53,8 +53,44 @@ const cards = document.querySelectorAll('.destination-card');
       }
     }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".flip-card");
 
-   
+  // sab cards ko animate class do initially
+  cards.forEach(card => card.classList.add("animate"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // viewport me aane par show class lagao
+        entry.target.classList.add("show");
+      } else {
+        // viewport se bahar jane par show class hatao
+        entry.target.classList.remove("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+});
+
+
+
+
+
+      fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+
+        // Hamburger activate
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      });
 
 
     

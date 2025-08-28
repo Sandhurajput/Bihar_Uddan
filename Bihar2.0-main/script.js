@@ -14,3 +14,17 @@ const audios = document.querySelectorAll('audio');
       });
     });
   });
+
+      fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+
+        // Hamburger activate
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      });

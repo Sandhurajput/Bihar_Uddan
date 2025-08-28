@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="Dia $ Achi.css">
 </head>
 <body>
-    <div class="navbar-button">
-        <nav>
-          <a href="Festival.html" class="back-button">← Back</a>
-        </nav>
-      </div>
+        <div id="navbar"></div>
+
       
     <main>
         <section id="introduction">
@@ -27,14 +24,6 @@
     </div>
     <div class="placeholder">Map of Bihar</div>
 </div>
-
-<style>
-    .language-image iframe {
-        width: 620px; /* Width ko fix kar diya gaya */
-        height: 315px; /* Height ko fix kar diya gaya */
-        border: none; /* Border ko hata diya */
-    }
-</style>
 </div>
 </section>
 
@@ -309,4 +298,19 @@
   </div>
 </footer>
 </body>
+<script>
+       fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+
+        // Hamburger activate
+        const menuToggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      });
+</script>
 </html>

@@ -14,12 +14,6 @@ body {
   box-sizing: border-box;  
 }
 
-
-
-
-
-
-
   
 /* for only in Dialect (language name ) */
 .navbar-langauge {
@@ -462,10 +456,7 @@ button:hover {
     flex-direction: column;
   }
   
-  .navbar {
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
+
   
   .menu {
     padding: 15px 10px;
