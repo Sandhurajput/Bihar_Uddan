@@ -1,28 +1,62 @@
 
+
 body {
     background-color: #fffaf4;
     margin: 0;
     padding: 0;
     color: #402c1c;
+
+}
+
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h2 {
+  color: #f7c200;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #555;
+  padding-top: 20px;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
   }
-  
-  .logo img {
-    height: 70px;
-    width: auto;
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 40px 5%;
-    justify-content: center;
-  }
-  
-  .section:nth-child(even) {
-    flex-direction: row-reverse;
-    background-color: #fef3e3;
-  }
+
   
   .image-box {
     flex: 1 1 350px;
@@ -57,7 +91,7 @@ body {
     line-height: 1.5;
   }
   
-  
+}
   /* ==== About Bihar Food Section ==== */
   
   .about-bihar-food {
@@ -278,196 +312,18 @@ body {
     height: 200px;
   }
   
+
+  .food-slider a,
   .food-slider img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
-  .food-slider img:hover {
-    transform: scale(1.05);
-  }
-  
-  footer {
-    background-color: #222;
-    color: #fff;
-    padding: 40px 20px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 30px;
-  }
-  
-  .footer-section {
-    flex: 1 1 200px;
-  }
-  
-  .footer-section h2 {
-    color: #f7c200;
-    margin-bottom: 10px;
-  }
-  
-  .footer-section p {
-    margin: 5px 0;
-    font-size: 14px;
-  }
-  
-  .footer-section.social img {
-    margin-right: 10px;
-    margin-top: 10px;
-    vertical-align: middle;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid #555;
-    padding-top: 20px;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #ccc;
+    width: 250px;
+    height: 170px;
   }
 
-
-
-
-
-
-  /* Keyframes for infinite seamless scroll */
-  @keyframes scrollSlider {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-50% - 7 * 20px)); /* 50% of slider width + total gap width */
-    }
+  .navbar {
+    padding: 10px 15px;
   }
-  
-  
-  /* ==== Responsive Design ==== */
-  
-  @media screen and (max-width: 950px) {
-    .content-box h2 {
-      font-size: 1.8rem;
-    }
-    
-    .ingredients {
-      font-size: 1.3rem;
-    }
-    
-    .desc {
-      font-size: 1rem;
-    }
-    
-    .about-bihar-food h2 {
-      font-size: 2rem;
-    }
-    
-    .about-bihar-food p {
-      font-size: 1rem;
-    }
+
+  .logo img {
+    height: 50px;
   }
-  
-  @media screen and (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-    }
-    
-    .nav-links {
-      position: fixed;
-      top: 100px;
-      left: 0;
-      right: 0;
-      background-color: rgba(139, 0, 0, 0.95);
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 0;
-      transform: translateY(-150%);
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .nav-links.active {
-      transform: translateY(0);
-    }
-    
-    .section {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .section:nth-child(even) {
-      flex-direction: column;
-    }
-    
-    .image-box {
-      margin-bottom: 20px;
-    }
-    
-    .food-slider a {
-      width: 250px;
-      height: 170px;
-    }
-    
-    .food-slider img {
-      width: 250px;
-      height: 170px;
-    }
-    
-    .footer-section {
-      flex: 1 1 100%;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .navbar {
-      padding: 10px 15px;
-    }
-    
-    .logo img {
-      height: 50px;
-    }
-    
-    .content-box h2 {
-      font-size: 1.5rem;
-    }
-    
-    .ingredients {
-      font-size: 1.1rem;
-    }
-    
-    .desc {
-      font-size: 0.9rem;
-    }
-    
-    .about-bihar-food h2 {
-      font-size: 1.8rem;
-    }
-    
-    .about-bihar-food p {
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    
-    .food-slider a {
-      width: 200px;
-      height: 140px;
-    }
-    
-    .food-slider img {
-      width: 200px;
-      height: 140px;
-    }
-    
-    .modal-content {
-      max-width: 95%;
-    }
-  }
+
