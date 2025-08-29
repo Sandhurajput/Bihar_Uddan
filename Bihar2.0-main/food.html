@@ -1,111 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the rich and diverse food culture of Bihar, featuring traditional dishes like Litti Chokha, Khaja, and more.">
   <title>Bihari Food Culture</title>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Food.css">
 </head>
 <body>
+  <!-- Navigation -->
+  <div id="navbar"></div>
 
-    <div id="navbar"></div>
-
-
-  <!-- Navbar -->
-
-
-  <!-- NEW: Food Cards Section (replaces old three .section blocks) -->
+  <!-- Main Content -->
+  <main>
+    <!-- Food Cards Section -->
   <section class="food-cards-section" aria-label="Bihari dishes">
     <h2>Signature Bihari Dishes</h2>
     <div class="card-grid">
       <!-- Aloo Chokha Card -->
-      <div class="flip-card" tabindex="0" role="button" aria-label="Aloo Chokha card. Tap or press Enter to flip">
-        <div class="flip-inner">
-          <div class="flip-face flip-front vertical-lined">
-            <img src="image/biharimage2.jpg" alt="Aloo Chokha">
-            <div class="card-body">
-              <h3 class="card-title">Aloo Chokha</h3>
-              <p class="card-desc">Traditional mashed potato dish with mustard oil and fresh aromatics. Often served with Litti or rice.</p>
-
-              <p><strong>Click here</strong></p>
-            </div>
-          </div>
-          <div class="flip-face flip-back vertical-lined">
-            <div class="card-body">
-              <h3 class="card-title">Aloo Chokha</h3>
-              <h4 class="ingredients-title">Ingredients</h4>
-              <ul class="ingredients-list">
-                <li>Boiled potatoes</li>
-                <li>Mustard oil</li>
-                <li>Garlic & onion</li>
-                <li>Green chilies</li>
-                <li>Fresh coriander</li>
-                <li>Lemon juice (optional)</li>
-                <li>Salt & pepper</li>
-              </ul>
-              <button class="recipe-btn" data-url="https://youtu.be/yl5m3MShSqQ?si=AWk_2kOgv5P4dlK0">Watch Recipe</button>
-            </div>
-          </div>
+      <div class="recipe-card" data-recipe="aloo-chokha">
+        <div class="recipe-image">
+          <img src="image/biharimage2.jpg" alt="Aloo Chokha" loading="lazy">
+        </div>
+        <div class="recipe-preview">
+          <h3 class="recipe-title">Aloo Chokha</h3>
+          <p class="recipe-desc">Traditional mashed potato dish with mustard oil and fresh aromatics. Often served with Litti or rice.</p>
+          <button class="view-recipe-btn">View Recipe</button>
         </div>
       </div>
 
       <!-- Khaja Card -->
-      <div class="flip-card" tabindex="0" role="button" aria-label="Khaja card. Tap or press Enter to flip">
-        <div class="flip-inner">
-          <div class="flip-face flip-front vertical-lined">
-            <img src="image/biharimg1.jpg" alt="Khaja">
-            <div class="card-body">
-              <h3 class="card-title">Khaja</h3>
-              <p class="card-desc">Crisp layered sweet made from flour, deep-fried and dipped in sugar syrup; festive and ceremonial.</p>
-
-              <p><strong>Click here</strong></p>
-            </div>
-          </div>
-          <div class="flip-face flip-back vertical-lined">
-            <div class="card-body">
-              <h3 class="card-title">Khaja</h3>
-              <h4 class="ingredients-title">Ingredients</h4>
-              <ul class="ingredients-list">
-                <li>All-purpose flour</li>
-                <li>Ghee or oil</li>
-                <li>Water or milk (for dough)</li>
-                <li>Sugar syrup (chasni)</li>
-                <li>Cardamom (optional)</li>
-              </ul>
-              <button class="recipe-btn" data-url="https://youtu.be/15NqNYMNr1g?si=ZQv3ODRyyyd7gJGz">Watch Recipe</button>
-            </div>
-          </div>
+      <div class="recipe-card" data-recipe="khaja">
+        <div class="recipe-image">
+          <img src="image/biharimg1.jpg" alt="Khaja" loading="lazy">
+        </div>
+        <div class="recipe-preview">
+          <h3 class="recipe-title">Khaja</h3>
+          <p class="recipe-desc">Crisp layered sweet made from flour, deep-fried and dipped in sugar syrup; festive and ceremonial.</p>
+          <button class="view-recipe-btn">View Recipe</button>
         </div>
       </div>
 
       <!-- Litti Chokha Card -->
-      <div class="flip-card" tabindex="0" role="button" aria-label="Litti Chokha card. Tap or press Enter to flip">
-        <div class="flip-inner">
-          <div class="flip-face flip-front vertical-lined">
-            <img src="image/biharimage3.jpg" alt="Litti Chokha">
-            <div class="card-body">
-              <h3 class="card-title">Litti Chokha</h3>
-              <p class="card-desc">Whole-wheat balls stuffed with sattu, roasted and served with smoky chokha and a generous drizzle of ghee.</p>
-              <p><strong>Click here</strong></p>
-            </div>
-          </div>
-          <div class="flip-face flip-back vertical-lined">
-            <div class="card-body">
-              <h3 class="card-title">Litti Chokha</h3>
-              <h4 class="ingredients-title">Ingredients</h4>
-              <ul class="ingredients-list">
-                <li>Whole-wheat flour</li>
-                <li>Sattu (roasted gram flour)</li>
-                <li>Onion, garlic, green chili</li>
-                <li>Brinjal & tomato (for chokha)</li>
-                <li>Mustard oil</li>
-                <li>Ghee</li>
-                <li>Salt & spices</li>
-              </ul>
-              <button class="recipe-btn" data-url="https://youtu.be/Fde1tefFkdM?si=LghotrOkcUoLo3mK">Watch Recipe</button>
-            </div>
-          </div>
+            <!-- Litti Chokha Card -->
+      <div class="recipe-card" data-recipe="litti-chokha">
+        <div class="recipe-image">
+          <img src="image/litti.webp" alt="Litti Chokha" loading="lazy">
+        </div>
+        <div class="recipe-preview">
+          <h3 class="recipe-title">Litti Chokha</h3>
+          <p class="recipe-desc">Wheat flour balls filled with roasted gram flour mix, served with mashed potato-brinjal.</p>
+          <button class="view-recipe-btn">View Recipe</button>
+        </div>
+      </div>
+
+      <!-- Thekua Card -->
+      <div class="recipe-card" data-recipe="thekua">
+        <div class="recipe-image">
+          <img src="image/food4.jpeg" alt="Thekua" loading="lazy">
+        </div>
+        <div class="recipe-preview">
+          <h3 class="recipe-title">Thekua</h3>
+          <p class="recipe-desc">Traditional Bihari sweet cookie made during Chhath Puja, flavored with cardamom and fennel seeds.</p>
+          <button class="view-recipe-btn">View Recipe</button>
         </div>
       </div>
 
@@ -126,6 +84,32 @@
     </p>
   </section>
 
+  <!-- Recipe Details Modal -->
+  <div id="recipeModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="recipe-details">
+        <div class="recipe-header">
+          <h2 id="modalRecipeTitle"></h2>
+          <p id="modalRecipeDesc"></p>
+        </div>
+        <div class="recipe-info">
+          <div class="recipe-section">
+            <h4>Ingredients</h4>
+            <ul id="modalIngredients"></ul>
+          </div>
+          <div class="recipe-section">
+            <h4>Instructions</h4>
+            <ol id="modalInstructions"></ol>
+          </div>
+        </div>
+        <div class="recipe-actions">
+          <a id="modalVideoLink" href="#" target="_blank" class="recipe-btn">Watch Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal for logo (unchanged hooks) -->
   <div id="imageModal" class="modal">
     <span class="close">&times;</span>
@@ -136,25 +120,26 @@
   <div class="food-slider-section">
     <h2>Watch Bihari Food in Action!</h2>
     <div class="food-slider" id="slider">
-      <a href="https://youtu.be/Fde1tefFkdM?si=LghotrOkcUoLo3mK" target="_blank"><img src="image/food1.jpeg" alt="Litti Chokha Video"></a>
-      <a href="https://youtu.be/15NqNYMNr1g?si=ZQv3ODRyyyd7gJGz" target="_blank"><img src="image/food2.jpeg" alt="Khaja Video"></a>
-      <a href="https://youtu.be/yl5m3MShSqQ?si=AWk_2kOgv5P4dlK0" target="_blank"><img src="image/food4.jpeg" alt="Thekua Video"></a>
-      <a href="https://youtu.be/_cUS0ziNtVE?si=w7ea_er40UBGhLmH" target="_blank"><img src="image/food5.jpeg" alt="Sattu Paratha Video"></a>
-      <a href="https://youtu.be/UWLG52DwUPE?si=uFo11RK1oW2qcmyp" target="_blank"><img src="image/food6.jpeg" alt="Another Bihari Food"></a>
-      <a href="https://youtu.be/oY4MwUhktR8?si=zrmxQrfMqAjr4hhb" target="_blank"><img src="image/food7.jpeg" alt="Bihari Food 7"></a>
-      <a href="https://youtu.be/dKEHFLJ9MnQ?si=otttm1AQKzxXJTGK" target="_blank"><img src="image/food9.jpeg" alt="Bihari Food 8"></a>
+      <a href="https://youtu.be/Fde1tefFkdM?si=LghotrOkcUoLo3mK" target="_blank"><img src="image/food1.jpeg" alt="Litti Chokha Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/15NqNYMNr1g?si=ZQv3ODRyyyd7gJGz" target="_blank"><img src="image/food2.jpeg" alt="Khaja Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/yl5m3MShSqQ?si=AWk_2kOgv5P4dlK0" target="_blank"><img src="image/food4.jpeg" alt="Thekua Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/_cUS0ziNtVE?si=w7ea_er40UBGhLmH" target="_blank"><img src="image/food5.jpeg" alt="Sattu Paratha Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/UWLG52DwUPE?si=uFo11RK1oW2qcmyp" target="_blank"><img src="image/food6.jpeg" alt="Another Bihari Food Recipe" loading="lazy"></a>
+      <a href="https://youtu.be/oY4MwUhktR8?si=zrmxQrfMqAjr4hhb" target="_blank"><img src="image/food7.jpeg" alt="Bihari Food Recipe" loading="lazy"></a>
+      <a href="https://youtu.be/dKEHFLJ9MnQ?si=otttm1AQKzxXJTGK" target="_blank"><img src="image/food9.jpeg" alt="Traditional Bihari Recipe" loading="lazy"></a>
       <!-- Repeat for seamless scroll -->
-      <a href="https://youtu.be/Fde1tefFkdM?si=LghotrOkcUoLo3mK" target="_blank"><img src="image/food1.jpeg" alt="Litti Chokha Video"></a>
-      <a href="https://youtu.be/15NqNYMNr1g?si=ZQv3ODRyyyd7gJGz" target="_blank"><img src="image/food2.jpeg" alt="Khaja Video"></a>
-      <a href="https://youtu.be/yl5m3MShSqQ?si=AWk_2kOgv5P4dlK0" target="_blank"><img src="image/food4.jpeg" alt="Thekua Video"></a>
-      <a href="https://youtu.be/_cUS0ziNtVE?si=w7ea_er40UBGhLmH" target="_blank"><img src="image/food5.jpeg" alt="Sattu Paratha Video"></a>
-      <a href="https://youtu.be/UWLG52DwUPE?si=uFo11RK1oW2qcmyp" target="_blank"><img src="image/food6.jpeg" alt="Another Bihari Food"></a>
-      <a href="https://youtu.be/oY4MwUhktR8?si=zrmxQrfMqAjr4hhb" target="_blank"><img src="image/food7.jpeg" alt="Bihari Food 7"></a>
-      <a href="https://youtu.be/dKEHFLJ9MnQ?si=otttm1AQKzxXJTGK" target="_blank"><img src="image/food9.jpeg" alt="Bihari Food 8"></a>
+      <a href="https://youtu.be/Fde1tefFkdM?si=LghotrOkcUoLo3mK" target="_blank"><img src="image/food1.jpeg" alt="Litti Chokha Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/15NqNYMNr1g?si=ZQv3ODRyyyd7gJGz" target="_blank"><img src="image/food2.jpeg" alt="Khaja Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/yl5m3MShSqQ?si=AWk_2kOgv5P4dlK0" target="_blank"><img src="image/food4.jpeg" alt="Thekua Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/_cUS0ziNtVE?si=w7ea_er40UBGhLmH" target="_blank"><img src="image/food5.jpeg" alt="Sattu Paratha Recipe Video" loading="lazy"></a>
+      <a href="https://youtu.be/UWLG52DwUPE?si=uFo11RK1oW2qcmyp" target="_blank"><img src="image/food6.jpeg" alt="Another Bihari Food Recipe" loading="lazy"></a>
+      <a href="https://youtu.be/oY4MwUhktR8?si=zrmxQrfMqAjr4hhb" target="_blank"><img src="image/food7.jpeg" alt="Bihari Food Recipe" loading="lazy"></a>
+      <a href="https://youtu.be/dKEHFLJ9MnQ?si=otttm1AQKzxXJTGK" target="_blank"><img src="image/food9.jpeg" alt="Traditional Bihari Recipe" loading="lazy"></a>
     </div>
-  </div>
+    </div>
+  </main>
 
-  <!-- Footer (unchanged) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-section">
@@ -186,7 +171,7 @@
         <p>Email: culture@bihar.gov.in</p>
         <p>Phone: +91 9876543210</p>
         <p>Tourism Office: Patna, Bihar</p>
-        <img src="images/bihar-logo.png" alt="Bihar logo" width="100">
+        <img src="image/bihar_logo.svg" alt="Bihar Tourism Logo" width="100">
       </div>
     </div>
     <div class="footer-bottom">
@@ -196,10 +181,9 @@
   </footer>
 
   <script src="Food.js"></script>
-</body>
-<<<<<<< HEAD
-<script>
-   fetch("navbar.html")
+  <script>
+    // Load navbar
+    fetch("navbar.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("navbar").innerHTML = data;
@@ -212,7 +196,6 @@
           navLinks.classList.toggle("show");
         });
       });
-</script>
-=======
->>>>>>> 8ff12718e34674627fd432349fab5fedfc61b329
+  </script>
+</body>
 </html>

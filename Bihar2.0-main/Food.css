@@ -1,11 +1,434 @@
 
+/* ===== CSS Variables ===== */
+:root {
+  /* Colors */
+  --color-primary: #c1440e;
+  --color-secondary: #8b0000;
+  --color-text: #402c1c;
+  --color-text-light: #5e412f;
+  --color-background: #fffaf4;
+  --color-background-alt: #ffffff;
+  --color-footer: #222;
+  --color-footer-accent: #f7c200;
+  
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 50px;
+  
+  /* Border Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
 
+/* ===== Base Styles ===== */
 body {
-    background-color: #fffaf4;
-    margin: 0;
-    padding: 0;
-    color: #402c1c;
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  font-family: 'Baloo 2', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
 
+/* ===== Food Cards Section ===== */
+.food-cards-section {
+  padding: var(--spacing-xxl) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.food-cards-section h2 {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  margin: var(--spacing-xxl) 0;
+  padding-top: var(--spacing-xl);
+  position: relative;
+}
+
+.food-cards-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--color-primary);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.recipe-card {
+  background: var(--color-background-alt);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.recipe-preview {
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.view-recipe-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin-top: var(--spacing-md);
+}
+
+.view-recipe-btn:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.recipe-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover .recipe-image img {
+  transform: scale(1.05);
+}
+
+.recipe-content {
+  padding: var(--spacing-md);
+}
+
+.recipe-title {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-xs);
+  display: inline-block;
+}
+
+.recipe-desc {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.recipe-details {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.recipe-section {
+  background: rgba(255, 250, 244, 0.8);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--color-primary);
+}
+
+.section-title {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-list li {
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-md);
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.ingredients-list li::before {
+  content: '•';
+  position: absolute;
+  left: 5px;
+  color: var(--color-primary);
+}
+
+.instructions-list {
+  list-style: none;
+  counter-reset: recipe-step;
+  padding: 0;
+  margin: 0;
+}
+
+.instructions-list li {
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-xl);
+  position: relative;
+  font-size: 0.9rem;
+  counter-increment: recipe-step;
+}
+
+.instructions-list li::before {
+  content: counter(recipe-step);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.recipe-btn, .print-btn {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.recipe-btn {
+  background: var(--color-primary);
+  color: white;
+}
+
+.print-btn {
+  background: #f0f0f0;
+  color: var(--color-text);
+}
+
+.recipe-btn:hover, .print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Card Styles */
+.flip-card {
+  background: transparent;
+  width: 100%;
+  height: 450px;
+  perspective: 1000px;
+  border-radius: var(--border-radius-md);
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-alt);
+  box-shadow: var(--shadow-sm);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--color-background-alt);
+}
+
+.vertical-lined {
+  position: relative;
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Card Content */
+.flip-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: var(--border-radius-md);
+  border-top-right-radius: var(--border-radius-md);
+}
+
+.card-body {
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--color-background-alt);
+  height: calc(100% - 220px);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-sm);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-desc {
+  color: var(--color-text-light);
+  margin: var(--spacing-sm) 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Back side recipe styles */
+.recipe-content {
+  padding: var(--spacing-xl) var(--spacing-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ingredients-title {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  display: inline-block;
+}
+
+.ingredients-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+  text-align: left;
+}
+
+.ingredients-list li {
+  color: var(--color-text);
+  padding: var(--spacing-xs) 0;
+  position: relative;
+  padding-left: var(--spacing-md);
+  font-size: 0.95rem;
+}
+
+.ingredients-list li::before {
+  content: '•';
+  position: absolute;
+  left: 5px;
+  color: var(--color-primary);
+}
+
+.ingredients-title {
+  color: var(--color-secondary);
+  margin: var(--spacing-sm) 0;
+  font-size: 1.2rem;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xs);
+}
+
+.ingredients-list li {
+  padding: var(--spacing-xs) 0;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: var(--spacing-md);
+}
+
+.ingredients-list li::before {
+  content: '•';
+  position: absolute;
+  left: 5px;
+  color: var(--color-primary);
+}
+
+.recipe-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: auto;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.recipe-btn:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 footer {
@@ -94,9 +517,90 @@ footer {
 }
   /* ==== About Bihar Food Section ==== */
   
-  .about-bihar-food {
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: var(--color-background);
+  margin: 5vh auto;
+  padding: var(--spacing-lg);
+  width: 90%;
+  max-width: 800px;
+  border-radius: var(--border-radius-md);
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.close {
+  position: absolute;
+  right: var(--spacing-md);
+  top: var(--spacing-md);
+  font-size: 2rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: var(--color-primary);
+}
+
+.recipe-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+#modalRecipeTitle {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+#modalRecipeDesc {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.modal .recipe-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.modal .recipe-section {
+  background: var(--color-background-alt);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+.modal #modalIngredients li,
+.modal #modalInstructions li {
+  list-style: none;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal .recipe-actions {
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+}
+
+.about-bihar-food {
     background-color: #ffffff;
-    padding: 50px 20px;
+    padding: 80px 20px;
+    margin: 80px 0;
     text-align: center;
     color: #4a2c1a;
     line-height: 1.8;
@@ -286,15 +790,13 @@ footer {
     color: red;
   }
   
-  .food-slider-section {
-    padding: 40px 20px;
-    background: #fdf5e6;
-    text-align: center;
-    font-family: 'Baloo 2', cursive;
+.food-slider-section {
+    margin: 100px auto 50px;
+    padding: 20px;
+    max-width: 1200px;
     overflow: hidden;
-  }
-  
-  .food-slider-section h2 {
+    position: relative;
+}  .food-slider-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #8b0000;
@@ -327,3 +829,361 @@ footer {
     height: 50px;
   }
 
+/* Recipe Card Styles */
+.recipe-content {
+  padding: var(--spacing-md);
+  height: 100%;
+  overflow-y: auto;
+  background: var(--color-background-alt);
+}
+
+.recipe-details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.recipe-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-primary);
+  display: inline-block;
+}
+
+.ingredients-list, .instructions-list {
+  list-style-position: inside;
+  padding: 0;
+  margin: var(--spacing-sm) 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.ingredients-list li {
+  position: relative;
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-md);
+}
+
+.ingredients-list li::before {
+  content: '•';
+  position: absolute;
+  left: 5px;
+  color: var(--color-primary);
+}
+
+.instructions-list {
+  counter-reset: step;
+}
+
+.instructions-list li {
+  counter-increment: step;
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-lg);
+  position: relative;
+}
+
+.instructions-list li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+  padding: var(--spacing-sm);
+}
+
+.recipe-btn, .print-btn {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.recipe-btn {
+  background: var(--color-primary);
+  color: white;
+}
+
+.print-btn {
+  background: #f0f0f0;
+  color: var(--color-text);
+}
+
+.recipe-btn:hover, .print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Custom scrollbar for recipe content */
+.recipe-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recipe-content::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+
+.recipe-content::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.recipe-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+/* ===== About Section ===== */
+.about-bihar-food {
+  background-color: var(--color-background-alt);
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  max-width: 1000px;
+  margin: auto;
+  font-size: 1.2rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-bihar-food h2 {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== Food Slider Section ===== */
+.food-slider-section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: #fdf5e6;
+  text-align: center;
+  overflow: hidden;
+}
+
+.food-slider-section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-secondary);
+}
+
+.food-slider {
+  display: flex;
+  gap: var(--spacing-md);
+  width: max-content;
+  animation: scrollSlider 40s linear infinite;
+  padding: var(--spacing-sm) 0;
+}
+
+.food-slider:hover {
+  animation-play-state: paused;
+}
+
+.food-slider a {
+  flex-shrink: 0;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.food-slider a:hover {
+  transform: translateY(-5px);
+}
+
+.food-slider img {
+  width: 250px;
+  height: 170px;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+@keyframes scrollSlider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7 - var(--spacing-md) * 7));
+  }
+}
+
+/* ===== Modal Styles ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 120px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-xl);
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: var(--color-primary);
+}
+
+/* ===== Footer Styles ===== */
+footer {
+  background-color: var(--color-footer);
+  color: white;
+  padding: var(--spacing-xl) var(--spacing-md);
+  font-family: 'Baloo 2', sans-serif;
+  margin-top: var(--spacing-xl);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h2 {
+  color: var(--color-footer-accent);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  margin: var(--spacing-xs) 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-section p:hover {
+  color: var(--color-footer-accent);
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #555;
+  padding-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+  
+  .about-bihar-food {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .food-cards-section h2,
+  .about-bihar-food h2 {
+    font-size: 2rem;
+  }
+  
+  .card-body {
+    padding: var(--spacing-md);
+  }
+  
+  .food-slider img {
+    width: 200px;
+    height: 140px;
+  }
+  
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  .flip-card {
+    height: 400px;
+  }
+  
+  @keyframes scrollSlider {
+    100% {
+      transform: translateX(calc(-200px * 7 - var(--spacing-md) * 7));
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-sm);
+  }
+  
+  .flip-card {
+    height: 450px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .recipe-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .footer-section {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  
+  .modal-content {
+    max-width: 95%;
+  }
+}
